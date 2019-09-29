@@ -3,4 +3,8 @@
     <string name="app_name">AndroidAssignments</string>
     <string name="hello_message">Zdravo!</string>
     <string name="ButtonText">Ja sam dugme</string>
+    <string name="login_text">Prijavite</string>
+    <string name="password_text">Lozinka</string>
+    <string name="switch_text">Sta ovo radi?</string>
+
 </resources>
