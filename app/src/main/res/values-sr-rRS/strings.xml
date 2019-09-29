@@ -6,5 +6,7 @@
     <string name="login_text">Prijavite</string>
     <string name="password_text">Lozinka</string>
     <string name="switch_text">Sta ovo radi?</string>
+    <string name="radio_text">RadioDugmeta</string>
+    <string name="check_text">Polje za potvrdu</string>
 
 </resources>

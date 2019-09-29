@@ -5,5 +5,8 @@
     <string name="login_text">Login</string>
     <string name="password_text">Password</string>
     <string name="switch_text">What does this do?</string>
+    <string name="radio_text">RadioButton</string>
+    <string name="check_text">CheckBox</string>
+
 
 </resources>
