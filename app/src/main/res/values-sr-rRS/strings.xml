@@ -8,5 +8,11 @@
     <string name="switch_text">Sta ovo radi?</string>
     <string name="radio_text">RadioDugmeta</string>
     <string name="check_text">Polje za potvrdu</string>
+    <string name="on_toast_text">Prekidac je ukljucen</string>
+    <string name="off_toast_text">Prekidac je isljucen</string>
+    <string name="dialog_message">Da li zelite da zavrsite aktivnost?</string>
+    <string name="dialog_title">Zavrsiti aktivnost?</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Ponistiti</string>
 
 </resources>
