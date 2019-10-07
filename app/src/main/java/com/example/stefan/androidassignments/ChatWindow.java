@@ -19,6 +19,8 @@ public class ChatWindow extends AppCompatActivity {
 
     protected static final String ACTIVITY_NAME = "ChatWindow";
     ArrayList<String> messages = new ArrayList<>();
+    EditText textField;
+    ChatAdapter messageAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,8 @@ public class ChatWindow extends AppCompatActivity {
 
         ListView chatView =  findViewById(R.id.chatView);
         Button send = findViewById(R.id.sendButton);
-        final EditText textField = findViewById(R.id.message);
-        final ChatAdapter messageAdapter = new ChatAdapter(this);
+        textField = findViewById(R.id.message);
+        messageAdapter = new ChatAdapter(this);
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
