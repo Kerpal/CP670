@@ -13,8 +13,8 @@
     <string name="dialog_title">Finish activity?</string>
     <string name="ok">Ok</string>
     <string name="cancel">Cancel</string>
-
-
+    <string name="StartText">Start Chat</string>
+    <string name="send">Send</string>
 
 
 

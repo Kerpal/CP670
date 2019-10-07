@@ -14,5 +14,9 @@
     <string name="dialog_title">Zavrsiti aktivnost?</string>
     <string name="ok">Ok</string>
     <string name="cancel">Ponistiti</string>
+    <string name="StartText">Zapocnite Caskanje</string>
+    <string name="send">Posalji</string>
+
+
 
 </resources>
