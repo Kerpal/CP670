@@ -12,10 +12,14 @@
     <string name="off_toast_text">Prekidac je isljucen</string>
     <string name="dialog_message">Da li zelite da zavrsite aktivnost?</string>
     <string name="dialog_title">Zavrsiti aktivnost?</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="cancel">Ponistiti</string>
     <string name="StartText">Zapocnite Caskanje</string>
     <string name="send">Posalji</string>
+    <string name="toolbar">Test Toolbar</string>
+    <string name="snackbar_message">Izaberite opciju</string>
+    <string name="go_back">Da li se zelis vratiti?</string>
+    <string name="new_message">Nova Poruka</string>
 
 
 

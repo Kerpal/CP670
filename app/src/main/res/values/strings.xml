@@ -11,11 +11,13 @@
     <string name="off_toast_text">Switch is Off</string>
     <string name="dialog_message">Do you want to finish the activity?</string>
     <string name="dialog_title">Finish activity?</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="StartText">Start Chat</string>
     <string name="send">Send</string>
-
-
+    <string name="toolbar">Test Toolbar</string>
+    <string name="snackbar_message">Select an option</string>
+    <string name="go_back">Do you want to go back?</string>
+    <string name="new_message">New Message</string>
 
 </resources>
