@@ -1,7 +1,11 @@
 package com.example.stefan.androidassignments;
 
+import android.content.ContentValues;
 import android.content.Context;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,11 +26,28 @@ public class ChatWindow extends AppCompatActivity {
     EditText textField;
     ChatAdapter messageAdapter;
 
+    static final String GET_MESSAGES = "SELECT KEY_MESSAGE FROM MESSAGES";
+    static SQLiteDatabase database;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_window);
         Log.i(ACTIVITY_NAME, "In onCreate()");
+
+        ChatDatabaseHelper dbHelper = new ChatDatabaseHelper(this);
+        database = dbHelper.getWritableDatabase();
+        final Cursor cursor = database.rawQuery(GET_MESSAGES,null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            Log.i(ACTIVITY_NAME, "SQL MESSAGE:" + cursor.getString( cursor.getColumnIndex( ChatDatabaseHelper.KEY_MESSAGE) ) );
+            messages.add(cursor.getString(cursor.getColumnIndex(ChatDatabaseHelper.KEY_MESSAGE)));
+            cursor.moveToNext();
+        }
+        Log.i(ACTIVITY_NAME, "Cursor’s  column count =" + cursor.getColumnCount() );
+        for (int i = 0; i < cursor.getColumnCount(); i++){
+            Log.i(ACTIVITY_NAME, "Column Name: "+ cursor.getColumnName(i));
+        }
 
         ListView chatView =  findViewById(R.id.chatView);
         Button send = findViewById(R.id.sendButton);
@@ -37,6 +58,9 @@ public class ChatWindow extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 messages.add(textField.getText().toString());
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(ChatDatabaseHelper.KEY_MESSAGE, textField.getText().toString());
+                database.insert(ChatDatabaseHelper.TABLE_NAME, "NullPlaceHolder", contentValues);
                 messageAdapter.notifyDataSetChanged();
                 textField.setText("");
             }
@@ -49,25 +73,31 @@ public class ChatWindow extends AppCompatActivity {
     private class ChatAdapter extends ArrayAdapter<String> {
 
         public ChatAdapter(Context ctx){
+
             super(ctx,0);
         }
+
         @Override
         public int getCount()
         {
+
             return messages.size();
         }
+
         @Override
         public String getItem(int position){
+
             return messages.get(position);
         }
+
         @Override
         public View getView(int position, View convertView, ViewGroup Parent){
             LayoutInflater inflater = ChatWindow.this.getLayoutInflater();
             View result = null;
-            if(position%2 == 0){
+            if (position % 2 == 0) {
                 result = inflater.inflate(R.layout.chat_row_incoming, null);
             }
-            else{
+            else {
                 result = inflater.inflate(R.layout.chat_row_outgoing, null);
             }
             TextView message = result.findViewById(R.id.message_text);
@@ -98,6 +128,7 @@ public class ChatWindow extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        database.close();
         Log.i(ACTIVITY_NAME, "In onDestroy()");
     }
 
